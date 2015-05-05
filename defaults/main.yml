@@ -10,7 +10,7 @@ open_jdk_deb: "openjdk-7-jre"
 
 logstash_version: "none"
 
-logstash_apt_repo: "deb http://packages.elasticsearch.org/logstash/{{ logstash_version }}/debian stable main"
+logstash_apt_repo: "deb http://packages.elasticsearch.org/logstash/{{ '.'.join(logstash_version.split('.')[:2]) }}/debian stable main"
 logstash_repo_key: "http://packages.elasticsearch.org/GPG-KEY-elasticsearch"
 logstash_yum_repo_dest: "/etc/yum.repos.d/logstash.repo"
 
