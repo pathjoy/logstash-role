@@ -1,9 +1,10 @@
 # {{ ansible_managed }}
 
 
-{% if logstash_filters is defined %}
+
 filter {
 
 {{logstash_filters}}
+
 }
 {% endif %}
