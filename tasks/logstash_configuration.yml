@@ -18,6 +18,13 @@
   notify:
    - restart logstash
   tags: logstash_filters
+  when: logstash_filters is defined
+
+- name: Remove Logstash file if not defined
+  file: path={{ logstash_conf_dir }}filters.conf
+        state=absent
+  when: logstash_filters is not defined
+  
 
 - name: Copy Logstash Output Configuration
   template: src=output.conf.j2
